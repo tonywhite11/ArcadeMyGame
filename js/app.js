@@ -44,24 +44,53 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-// Hero class
+// Hero class constructor
 class Hero {
     constructor() {
         this.sprite = 'images/char-boy.png';
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = (this.jump * 5) - 20;
+        this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
-        
-    }
+       }
 
     // draw hero sprite on current x and y coord position
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    
+    // Draw
+   // Constructor
+       // Properties
+          // x pos
+          // y pos
+          // Sprite image
+       // Methods
+          update() {
 
+             // Check collision here
+             for(let enemy of allEnemies) {
+                // Did player x and y collide with enemy?
+                if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+                    this.reset();
+                }
+             }
+             // Check win here?
+                // Did player x and y reach final title?
+          }
+         // Reset Hero
+          reset() {
+            this.y = this.startY;
+            this.x = this.startX;
+          }
+          // Render
+             // Draw player sprite on current x and y coord position
+          // Handle keyboard input
+                // Update player's x and y property according to input
+         
+        
     /**
      * Update hero's x and y property according to input
      *
@@ -100,24 +129,7 @@ const bug3 = new Enemy((-101*2.5), 83, 300);
 const allEnemies = [];
 allEnemies.push(bug1,bug2,bug3);
 console.log(allEnemies);
-// Draw
-   // Constructor
-       // Properties
-          // x pos
-          // y pos
-          // Sprite image
-       // Methods
-          // Update position
-             // Check collision here
-                // Did player x and y collide with enemy?
-             // Check win here?
-                // Did player x and y reach final title?
-          // Render
-             // Draw player sprite on current x and y coord position
-          // Handle keyboard input
-                // Update player's x and y property according to input
-          // Reset Hero
-            // Set x and y to starting x and y
+
 
 
 // Now instantiate your objects.
