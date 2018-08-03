@@ -3,6 +3,9 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
+    // x pos
+    // y pos
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -14,7 +17,19 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // If enemy is not passed boundary
+       // Move forward
+       // Increment x by speed * dt
+    // else
+       // Reset pos to start
 };
+
+// New Hero object
+
+// Ini allenemies array
+// For each enemy create and push new Enemy object into above array
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -24,6 +39,75 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
+// Hero class
+class Hero {
+    constructor() {
+        this.sprite = 'images/char-boy.png';
+        this.step = 101;
+        this.jump = 83;
+        this.startX = this.step * 2;
+        this.startY = (this.jump * 5) - 20;
+        this.x = this.startX;
+        this.y = this.startY;
+        
+    }
+
+    // draw hero sprite on current x and y coord position
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
+    /**
+     * Update hero's x and y property according to input
+     *
+     * @param {string} input - Direction to travel
+     */
+     handleInput(input) {
+        switch(input) {
+            case 'left':
+               if (this.x > 0) {
+               this.x -= this.step;
+           }
+               break;
+            case 'up':
+               if (this.y > this.jump) {
+               this.y -= this.jump;
+           }
+               break;
+            case 'right':
+               if (this.x < this.step * 4) {
+               this.x += this.step;
+           }
+               break;
+            case 'down':
+               if (this.y < this.jump * 4) {
+               this.y += this.jump;
+           }
+               break;
+        }
+
+     }
+}
+const player = new Hero();
+// Draw
+   // Constructor
+       // Properties
+          // x pos
+          // y pos
+          // Sprite image
+       // Methods
+          // Update position
+             // Check collision here
+                // Did player x and y collide with enemy?
+             // Check win here?
+                // Did player x and y reach final title?
+          // Render
+             // Draw player sprite on current x and y coord position
+          // Handle keyboard input
+                // Update player's x and y property according to input
+          // Reset Hero
+            // Set x and y to starting x and y
 
 
 // Now instantiate your objects.
