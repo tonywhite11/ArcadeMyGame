@@ -1,13 +1,9 @@
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // x pos
-    // y pos
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    this.x = 0;
+    this.y = 0;
+    // The image/sprite for our enemies
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -90,6 +86,9 @@ class Hero {
      }
 }
 const player = new Hero();
+const bug1 = new Enemy();
+const allEnemies = [];
+allEnemies.push(bug1);
 // Draw
    // Constructor
        // Properties
