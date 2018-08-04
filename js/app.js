@@ -5,7 +5,7 @@ var Enemy = function(x, y, speed) {
     this.speed = speed; 
     this.sprite = 'images/enemy-bug.png';  // The image/sprite for our enemies
     this.step = 101;
-    this.boundary = this.step * 8;
+    this.boundary = this.step * 5;
     this.resetPos = -this.step;
 };
 
@@ -79,7 +79,7 @@ class Hero {
                 if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
                     this.reset();
                 }
-             }
+             };
              // Check if won
              if(this.y === 55) {
                 this.victory = true;
@@ -128,15 +128,11 @@ class Hero {
      }
 }
 const player = new Hero();
-const bug1 = new Enemy(-101, 5, 350);
-const bug2 = new Enemy(-101, 88, 100);
-const bug3 = new Enemy((-101*5), 88, 375);
-const bug4 = new Enemy(-101, 170, 200);
-const bug5 = new Enemy(-101, 250, 250);
-const bug6 = new Enemy(-101*6, 250, 400);
-const bug7 = new Enemy(-101, 5, 150);
+const bug1 = new Enemy(-101, 0, 350);
+const bug2 = new Enemy(-101, 83, 100);
+const bug3 = new Enemy((-101*5), 83, 375);
 const allEnemies = [];
-allEnemies.push(bug1,bug2,bug3,bug4,bug5,bug6,bug7);
+allEnemies.push(bug1,bug2,bug3);
 
 
 

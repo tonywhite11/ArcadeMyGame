@@ -38,7 +38,7 @@ var Engine = (function(global) {
         win.requestAnimationFrame(main);
     });
 
-    canvas.width = 808;
+    canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
