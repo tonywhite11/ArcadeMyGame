@@ -25,6 +25,19 @@ var Engine = (function(global) {
         lastTime,
         id;
 
+    const modal = document.querySelector('.modal_bg');
+    const replay = document.querySelector('.modal_button');
+    document.querySelector('.modal_close').addEventListener('click', () => {
+    toggleModal();
+});
+
+    replay.addEventListener('click', function() {
+        modal.classList.toggle('hide');
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
+    });
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -58,6 +71,7 @@ var Engine = (function(global) {
          */
          if (player.victory === true) {
             win.cancelAnimationFrame(id);
+            modal.classList.toggle('hide');
         } else {
               id = win.requestAnimationFrame(main);
         }
@@ -168,7 +182,12 @@ var Engine = (function(global) {
     function reset() {
         // noop
     }
-
+    
+    // Show or hide modal
+    function toggleModal() {
+    const modal = document.querySelector('.modal_bg');
+    modal.classList.toggle('hide');
+    }
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
