@@ -54,6 +54,7 @@ class Hero {
         this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
+        this.victory = false;
        }
 
     // draw hero sprite on current x and y coord position
@@ -68,17 +69,21 @@ class Hero {
           // y pos
           // Sprite image
        // Methods
+       // Update position
           update() {
 
              // Check collision here
              for(let enemy of allEnemies) {
+
                 // Did player x and y collide with enemy?
                 if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
                     this.reset();
                 }
              }
-             // Check win here?
-                // Did player x and y reach final title?
+             // Check if won
+             if(this.y === 55) {
+                this.victory = true;
+             }
           }
          // Reset Hero
           reset() {
@@ -128,7 +133,7 @@ const bug2 = new Enemy(-101, 83, 300);
 const bug3 = new Enemy((-101*2.5), 83, 300);
 const allEnemies = [];
 allEnemies.push(bug1,bug2,bug3);
-console.log(allEnemies);
+
 
 
 
