@@ -19,7 +19,7 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        id;
+        gameOver;
 
     const modal = document.querySelector('.modal_bg');
     const replay = document.querySelector('.modal_button');
@@ -34,7 +34,7 @@ var Engine = (function(global) {
         win.requestAnimationFrame(main);
     });
 
-    canvas.width = 505;
+    canvas.width = 808;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
@@ -47,10 +47,10 @@ var Engine = (function(global) {
         lastTime = now;
 
          if (player.victory === true) {
-            win.cancelAnimationFrame(id);
+            win.cancelAnimationFrame(gameOver);
             toggleModal();
         } else {
-              id = win.requestAnimationFrame(main);
+              gameOver = win.requestAnimationFrame(main);
         }
     }
 
@@ -167,7 +167,19 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Gem Blue.png',    
+        'images/Gem Green.png',   
+        'images/Gem Orange.png',  
+        'images/Heart.png',                   
+        'images/Rock.png',          
+        'images/char-cat-girl.png',          
+        'images/char-horn-girl.png',          
+        'images/char-pink-girl.png',          
+        'images/char-princess-girl.png',
+        'images/Key.png',
+        'images/Star.png',
+        'images/Selector.png' 
     ]);
     Resources.onReady(init);
 

@@ -50,3 +50,29 @@ body {
 .hide {
     display: none;
 }
+
+.thumb-bar img {
+    display: block;
+    width: 50px;
+    height: 75px;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 50px;
+}
+.thumb-bar {
+	display: flex;
+}
+h1 {
+	margin: 2px 0;
+}
+body canvas {
+	margin-bottom: 0;
+}
+span {
+	font-size: 20px;
+}

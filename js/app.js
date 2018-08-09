@@ -6,7 +6,7 @@ var Enemy = function(x, y, speed) {
     this.speed = speed; 
     this.sprite = 'images/enemy-bug.png';  // The image/sprite for our enemies
     this.step = 101;
-    this.boundary = this.step * 5;
+    this.boundary = this.step * 8;
     this.resetPos = -this.step;
 };
 
@@ -78,7 +78,7 @@ class Hero {
            }
                break;
             case 'right':
-               if (this.x < this.step * 4) {
+               if (this.x < this.step * 7) {
                this.x += this.step;
            }
                break;
