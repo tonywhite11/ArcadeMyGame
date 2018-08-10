@@ -13,8 +13,8 @@
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
-    var doc = global.document,
+let Engine = (function(global) {
+    let doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
@@ -39,7 +39,7 @@ var Engine = (function(global) {
     doc.body.appendChild(canvas);
 
     function main() {
-        var now = Date.now(),
+        let now = Date.now(),
             dt = (now - lastTime) / 1000.0;
         update(dt);
         render();
@@ -102,7 +102,7 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
-        var rowImages = [
+        let rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 4 of stone
                 'images/stone-block.png',   // Row 2 of 4 of stone
@@ -134,7 +134,16 @@ var Engine = (function(global) {
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
-        }
+        } let gemBlue = Resources.get('images/Gem Blue.png');
+          let gemGreen = Resources.get('images/Gem Green.png');
+          let gemOrange = Resources.get('images/Gem Orange.png');
+          let rock1 = Resources.get('images/Rock.png');
+          let rock2 = Resources.get('images/Rock.png');
+              ctx.drawImage(gemBlue, 101, 83, 80, 130); 
+              ctx.drawImage(gemGreen, 101 * 4, 166, 80, 130);
+              ctx.drawImage(gemOrange, 101 * 6, 249, 80, 130);
+              ctx.drawImage(rock1, 101 * 1, 249);
+              ctx.drawImage(rock2, 101 * 6, 83);
 
         renderEntities();
     }

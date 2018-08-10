@@ -1,8 +1,8 @@
 
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+let Enemy = function(x, y, speed) {
     this.x = x;
-    this.y = y + 55; 
+    this.y = y + 55;9
     this.speed = speed; 
     this.sprite = 'images/enemy-bug.png';  // The image/sprite for our enemies
     this.step = 101;
@@ -100,7 +100,7 @@ const bug3 = new Enemy((-101*5), 83, 350);
 const bug4 = new Enemy(-101*5, 166, 270);
 const bug5 = new Enemy(-101*2, 249, 300);
 const allEnemies = [];
-allEnemies.push(bug1,bug2,bug3,bug4,bug5);
+allEnemies.push(bug1,bug2,bug3,bug4,bug5,);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

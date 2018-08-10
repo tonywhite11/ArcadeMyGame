@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    display: block;
 }
 
 .modal_bg {
@@ -52,27 +53,68 @@ body {
 }
 
 .thumb-bar img {
-    display: block;
+    display: inline-block;
     width: 50px;
-    height: 75px;
+    height: 80px;
+    margin: auto;
     cursor: pointer;
 }
-.container {
+/*.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     height: 50px;
-}
+} */
 .thumb-bar {
-	display: flex;
+	display: inline-block;
+	margin: auto;
+	width: 300px;
+	height: 80px;
 }
 h1 {
 	margin: 2px 0;
 }
-body canvas {
-	margin-bottom: 0;
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    margin: auto;
+    width: 650px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px white, 0 0 2px black;
+    letter-spacing: 0.3em;
+    z-index: 1;
+    background-color: rgb(192, 63, 15);
+    padding: 10px 20px;
+    justify-content: space-between;
 }
-span {
-	font-size: 20px;
+
+.score-panel .users {
+    padding: 0;
+   display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+
+.score-panel .users li {
+    list-style: none;
+   display: inline-block;
+}
+
+.score-panel .reset{
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 15%;
+}
+
+.score-panel .moves, .score-panel .timer, .score-panel .thumb-bar {
+    display: inline-block;
+}
+
+.score-panel .timer {
+    margin-left: 15%
 }
