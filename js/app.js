@@ -9,7 +9,6 @@ let Enemy = function(x, y, speed) {
     this.boundary = this.step * 8;
     this.resetPos = -this.step;
 };
-
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -20,15 +19,18 @@ Enemy.prototype.update = function(dt) {
        // Increment x by speed * dt 
        this.x += this.speed * dt;
     }
+
     else {
 // Reset pos to start
        this.x = this.resetPos;
     }
 };
+
 // Draw the enemy on canvas
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 // Hero Constructor
 class Hero {
     constructor() {
@@ -41,10 +43,12 @@ class Hero {
         this.y = this.startY;
         this.victory = false;
        }
+
 // Sprite image
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
        }
+
 // Update position
     update() {
 
@@ -54,16 +58,19 @@ class Hero {
               this.reset();
             }
         };
+
 // Check if won
         if(this.y === 55) {
               this.victory = true;
             }
         }
+
 // Reset Hero
     reset() {
               this.y = this.startY;
               this.x = this.startX;
         }
+  
 // HandleInput method
     handleInput(input) {
         switch(input) {

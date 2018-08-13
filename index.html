@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
@@ -11,24 +12,26 @@
 </head>
 <body>
     <h1>ARCADE GAME</h1>
-     <section class="score-panel">
-        	<ul class="users">
-        		<li class="one"><i class="fas fa-user"></i></li>
-        		<li class="two"><i class="fas fa-user"></i></li>
-        		<li class="three"><i class="fas fa-user"></i><span class="moves"></span> Lives</li>
-        	</ul>
-        	<div class="thumb-bar">
-                <img src="images/char-boy.png">
-                <img src="images/char-cat-girl.png">
-                <img src="images/char-horn-girl.png">
-                <img src="images/char-pink-girl.png">
-                <img src="images/char-princess-girl.png">
-            </div>
-            <div class="reset">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-          </section>
-          <div class="modal_bg hide">
+    <section class="score-panel">
+       <ul class="users">
+     	  <li class="one"><i class="fas fa-user-ninja fa-lg"></i></li>
+     	  <li class="two"><i class="fas fa-user-ninja fa-lg"></i></li>
+     	  <li class="three"><i class="fas fa-user-ninja fa-lg"></i><span class="lives"></span></li>
+     	</ul>
+
+    	<div class="thumb-bar">
+          <img class="btn-outline-primary" src="images/char-boy.png">
+          <img class="btn-outline-primary" src="images/char-cat-girl.png">
+          <img class="btn-outline-primary" src="images/char-horn-girl.png">
+          <img class="btn-outline-primary" src="images/char-pink-girl.png">
+          <img class="btn-outline-primary" src="images/char-princess-girl.png">
+        </div>
+        <button type="button" class="btn btn-success">Start</button>
+     </section>
+
+<!-- Modal -->
+
+  <div class="modal_bg hide">
         <div class="modal_body">
             <div class="modal_heading">
               <h1 class="modal_title">YOU WIN!</h1>

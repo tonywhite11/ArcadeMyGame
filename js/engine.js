@@ -23,6 +23,9 @@ let Engine = (function(global) {
 
     const modal = document.querySelector('.modal_bg');
     const replay = document.querySelector('.modal_button');
+    document.querySelector('.btn-success').addEventListener('click', () => {
+        startGame();
+    });
     document.querySelector('.modal_close').addEventListener('click', () => {
     toggleModal();
 });
@@ -63,7 +66,12 @@ let Engine = (function(global) {
         lastTime = Date.now();
         main();
     }
-
+    
+    function startGame() {
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
+    }
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data. Based on how
      * you implement your collision detection (when two entities occupy the
@@ -134,16 +142,21 @@ let Engine = (function(global) {
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
-        } let gemBlue = Resources.get('images/Gem Blue.png');
-          let gemGreen = Resources.get('images/Gem Green.png');
-          let gemOrange = Resources.get('images/Gem Orange.png');
-          let rock1 = Resources.get('images/Rock.png');
-          let rock2 = Resources.get('images/Rock.png');
-              ctx.drawImage(gemBlue, 101, 83, 80, 130); 
-              ctx.drawImage(gemGreen, 101 * 4, 166, 80, 130);
-              ctx.drawImage(gemOrange, 101 * 6, 249, 80, 130);
-              ctx.drawImage(rock1, 101 * 1, 249);
-              ctx.drawImage(rock2, 101 * 6, 83);
+        }     let gemBlue = Resources.get('images/Gem Blue.png');
+              let gemGreen = Resources.get('images/Gem Green.png');
+              let gemOrange = Resources.get('images/Gem Orange.png');
+              let rock1 = Resources.get('images/Rock.png');
+              let rock2 = Resources.get('images/Rock.png');
+              let rock3 = Resources.get('images/Rock.png');
+              let rock4 = Resources.get('images/Rock.png');
+              
+              ctx.drawImage(gemBlue, 5, 85, 80, 130); 
+              ctx.drawImage(gemGreen, 104 * 4, 166, 80, 130);
+              ctx.drawImage(gemOrange, 104 * 6, 249, 80, 130);
+              ctx.drawImage(rock1, 0 * 1, 310);
+              ctx.drawImage(rock2, 101 * 5, 230);
+              ctx.drawImage(rock3, 101 * 2, 150);
+              ctx.drawImage(rock3, 101 * 6, 60);
 
         renderEntities();
     }
