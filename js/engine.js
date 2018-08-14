@@ -177,11 +177,52 @@ let Engine = (function(global) {
     function reset() {
         // noop
     }
-    
+    let focusedElementBeforeModal;
     // Show or hide modal
     function toggleModal() {
-    const modal = document.querySelector('.modal_bg');
+        // Save current focus
+    focusedElementBeforeModal = document.activeElement;
+        // Listen for and trap the keyboard
+    modal.addEventListener('keydown', trapTabKey);
+    
+    let focusableElementsString = 'a[href], area[href], input:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+    let focusableElements = modal.querySelectorAll(focusableElementsString);
+    // Convert NodeList to Array
+    focusableElements = Array.prototype.slice.call(focusableElements);
+
+    let firstTabStop = focusableElements[0];
+    let lastTabStop = focusableElements[focusableElements.length - 1];
     modal.classList.toggle('hide');
+    // modal.style.display = 'block';
+    
+    // Focus first child
+    firstTabStop.focus();
+
+    function trapTabKey(e) {
+        // Check for TAB key press
+        if (e.keyCode === 9) {
+
+            // SHIFT + TAB
+            if (e.shiftKey) {
+              if (document.activeElement === firstTabStop) {
+                e.preventDefault();
+                lastTabStop.focus();
+              }
+
+              //TAB
+            } else {
+                if (document.activeElement === lastTabStop) {
+                    e.preventDefault();
+                    firstTabStop.focus();
+                }
+            }
+         }
+
+         // ESCAPE
+         if (e.keyCode === 27) {
+            toggleModal();
+         }
+       }
     }
  
     Resources.load([
