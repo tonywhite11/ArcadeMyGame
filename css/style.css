@@ -1,9 +1,12 @@
 body {
     text-align: center;
     display: block;
+    background-color: #03a9f433;
 }
+
 h1 {
     margin: 2px 0;
+    letter-spacing: 2rem;
 }
 
 .modal_bg {
@@ -60,13 +63,7 @@ h1 {
     margin: auto;
     cursor: pointer;
 }
-/*.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 50px;
-} */
+
 .thumb-bar {
 	margin: auto;
 	max-width: 300px;
@@ -75,14 +72,14 @@ h1 {
 
 .score-panel {
     margin: auto;
-    width: 70%;
+    max-width: 800px;
     border-radius: 5px;
     font-size: 20px;
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px white, 0 0 2px black;
     letter-spacing: 0.3em;
     z-index: 1;
-    background-color: #6f45aa;
+    background-color: #a06fe6;
     padding: 10px 20px;
     justify-content: space-between;
 }
@@ -107,4 +104,8 @@ h1 {
 
 .score-panel .lives, .score-panel .thumb-bar, .btn-success{
     display: inline-block;
+}
+
+.btn {
+    margin-bottom: 1px;
 }
