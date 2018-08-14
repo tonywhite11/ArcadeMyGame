@@ -173,6 +173,15 @@ let Engine = (function(global) {
     function reset() {
         // noop
     }
+    document.querySelector('.btn-danger').addEventListener('click', () => {
+        togglePopover();
+    });
+       
+    function togglePopover() {
+      $('.btn-danger').popover({
+          container: 'body'
+      })
+    }
 
     // Stores focused element before modal opens
     let focusedElementBeforeModal;
