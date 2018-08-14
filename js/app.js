@@ -9,6 +9,7 @@ let Enemy = function(x, y, speed) {
     this.boundary = this.step * 8;
     this.resetPos = -this.step;
 };
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -21,6 +22,7 @@ Enemy.prototype.update = function(dt) {
     }
 
     else {
+
 // Reset pos to start
        this.x = this.resetPos;
     }
@@ -96,10 +98,12 @@ class Hero {
                break;
         }
 
-     }
+    }
 }
+
 // New Hero object
 const player = new Hero();
+
 // Init allenemies array
 const bug1 = new Enemy(-101, 0, 500);
 const bug2 = new Enemy(-101, 83, 150);
@@ -110,7 +114,7 @@ const allEnemies = [];
 allEnemies.push(bug1,bug2,bug3,bug4,bug5,);
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',

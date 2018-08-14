@@ -21,26 +21,30 @@ let Engine = (function(global) {
         lastTime,
         gameOver;
 
+     // Event handlers for modal
     const modal = document.querySelector('.modal_bg');
     const replay = document.querySelector('.modal_button');
     document.querySelector('.btn-success').addEventListener('click', () => {
         startGame();
     });
     document.querySelector('.modal_close').addEventListener('click', () => {
-    toggleModal();
+    closeModal();
 });
 
+     // Evenet handler for replay button
     replay.addEventListener('click', function() {
-        toggleModal();
+        closeModal();
         player.reset();
         player.victory = false;
         win.requestAnimationFrame(main);
     });
 
+     // Canvas dimensions
     canvas.width = 808;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-
+     
+     // Function for win/game over
     function main() {
         let now = Date.now(),
             dt = (now - lastTime) / 1000.0;
@@ -48,10 +52,10 @@ let Engine = (function(global) {
         render();
 
         lastTime = now;
-
+            // Check for victory
          if (player.victory === true) {
             win.cancelAnimationFrame(gameOver);
-            toggleModal();
+            openModal();
         } else {
               gameOver = win.requestAnimationFrame(main);
         }
@@ -67,23 +71,15 @@ let Engine = (function(global) {
         main();
     }
     
+    // Function to start game
     function startGame() {
         player.reset();
         player.victory = false;
         win.requestAnimationFrame(main);
     }
-    /* This function is called by main (our game loop) and itself calls all
-     * of the functions which may need to update entity's data. Based on how
-     * you implement your collision detection (when two entities occupy the
-     * same space, for instance when your character should die), you may find
-     * the need to add an additional function call here. For now, we've left
-     * it commented out - you may or may not want to implement this
-     * functionality this way (you could just implement collision detection
-     * on the entities themselves within your app.js file).
-     */
+     // Function to update entities dt
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -161,7 +157,7 @@ let Engine = (function(global) {
         renderEntities();
     }
     
-
+     // Function to render players and enemies
     function renderEntities() {
          allEnemies.forEach(function(enemy) {
              enemy.render();
@@ -177,27 +173,31 @@ let Engine = (function(global) {
     function reset() {
         // noop
     }
+
+    // Stores focused element before modal opens
     let focusedElementBeforeModal;
-    // Show or hide modal
-    function toggleModal() {
+
+        // Show or hide modal
+    function openModal() {
         // Save current focus
     focusedElementBeforeModal = document.activeElement;
         // Listen for and trap the keyboard
     modal.addEventListener('keydown', trapTabKey);
-    
+        // All possible focus elements
     let focusableElementsString = 'a[href], area[href], input:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     let focusableElements = modal.querySelectorAll(focusableElementsString);
-    // Convert NodeList to Array
+        // Convert NodeList to Array
     focusableElements = Array.prototype.slice.call(focusableElements);
-
+        // Stores first and last focusable elements in modal
     let firstTabStop = focusableElements[0];
     let lastTabStop = focusableElements[focusableElements.length - 1];
-    modal.classList.toggle('hide');
-    // modal.style.display = 'block';
+        // Displays modal
+     modal.style.display = 'block';
     
     // Focus first child
     firstTabStop.focus();
 
+    // Function traps TAB key inside of modal until buttons are pressed
     function trapTabKey(e) {
         // Check for TAB key press
         if (e.keyCode === 9) {
@@ -220,9 +220,18 @@ let Engine = (function(global) {
 
          // ESCAPE
          if (e.keyCode === 27) {
-            toggleModal();
+            closeModal();
          }
        }
+    }
+
+     // Function closes modal
+    function closeModal() {
+        // Hide the modal and overlay
+        modal.style.display = 'none';
+
+        // Set focus bak to element that had it before modal opened
+        focusedElementBeforeModal.focus();
     }
  
     Resources.load([
