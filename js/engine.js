@@ -138,7 +138,9 @@ let Engine = (function(global) {
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
-        }     let gemBlue = Resources.get('images/Gem Blue.png');
+        }    
+           // Items to render on gameboard
+              /* let gemBlue = Resources.get('images/Gem Blue.png');
               let gemGreen = Resources.get('images/Gem Green.png');
               let gemOrange = Resources.get('images/Gem Orange.png');
               let rock1 = Resources.get('images/Rock.png');
@@ -152,7 +154,7 @@ let Engine = (function(global) {
               ctx.drawImage(rock1, 0 * 1, 310);
               ctx.drawImage(rock2, 101 * 5, 230);
               ctx.drawImage(rock3, 101 * 2, 150);
-              ctx.drawImage(rock3, 101 * 6, 60);
+              ctx.drawImage(rock3, 101 * 6, 60);*/
 
         renderEntities();
     }

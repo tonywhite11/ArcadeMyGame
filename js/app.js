@@ -3,7 +3,7 @@
 let Enemy = function(x, y, speed) {
     this.x = x;
     this.y = y + 55;9
-    this.speed = speed; 
+    this.speed = speed; 55-8355
     this.sprite = 'images/enemy-bug.png';  // The image/sprite for our enemies
     this.step = 101;
     this.boundary = this.step * 8;
@@ -38,9 +38,9 @@ class Hero {
     constructor() {
         this.sprite = 'images/char-boy.png';    // Properties and x, y pos
         this.step = 101;
-        this.jump = 83;
+        this.jump = 83/2;
         this.startX = this.step * 3;
-        this.startY = (this.jump * 4) + 55;
+        this.startY = 387;
         this.x = this.startX;
         this.y = this.startY;
         this.victory = false;
@@ -62,7 +62,7 @@ class Hero {
         };
 
 // Check if won
-        if(this.y === 55) {
+        if(this.y === 13.5) {
               this.victory = true;
             }
         }
@@ -92,7 +92,7 @@ class Hero {
            }
                break;
             case 'down':
-               if (this.y < this.jump * 4) {
+               if (this.y < this.jump * 9) {
                this.y += this.jump;
            }
                break;
@@ -106,12 +106,16 @@ const player = new Hero();
 
 // Init allenemies array
 const bug1 = new Enemy(-101, 0, 500);
-const bug2 = new Enemy(-101, 83, 150);
+const bug2 = new Enemy(101*6, 83, 0);
 const bug3 = new Enemy((-101*5), 83, 350);
 const bug4 = new Enemy(-101*5, 166, 270);
-const bug5 = new Enemy(-101*2, 249, 300);
+const bug5 = new Enemy(101*4, 249, 0);
+const bug6 = new Enemy(-101*3, 249, 600);
+const bug7 = new Enemy(101, 83, 100);
+const bug8 = new Enemy(0, 166, 0);
+const bug9 = new Enemy(101*2, 0, 0);
 const allEnemies = [];
-allEnemies.push(bug1,bug2,bug3,bug4,bug5,);
+allEnemies.push(bug1,bug2,bug3,bug4,bug5,bug6,bug7,bug8,bug9);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method.
