@@ -4,7 +4,7 @@ body {
     background-color: #03a9f433;
 }
 
-h1 {
+.game_title {
     margin: 2px 0;
     letter-spacing: 2rem;
 }
